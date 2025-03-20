@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Home - Messaging App{% endblock %}
+
+{% block content %}
+  <div class="jumbotron text-center">
+    <h1>Welcome to the Encrypted Messaging App</h1>
+    <p>Signing in to check your messages or join us now!</p>
+    <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+    <a class="btn btn-secondary" href="{% url 'signup' %}">Sign Up</a>
+  </div>
+{% endblock %}

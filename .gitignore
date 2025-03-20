@@ -1,0 +1,4 @@
+/env
+ngrok.yml
+db.sqlite3
+encryptText/encryptText/settings/local.py

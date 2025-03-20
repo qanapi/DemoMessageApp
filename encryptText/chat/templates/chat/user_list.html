@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block title %}User List{% endblock %}
+
+{% block content %}
+  <h2>Available Users</h2>
+  <ul>
+    {% for user in users %}
+      <li>{{ user.username }}</li>
+    {% empty %}
+      <li>No other users available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
