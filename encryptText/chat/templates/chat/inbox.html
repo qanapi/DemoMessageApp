@@ -1,22 +1,19 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-  <h2>Inbox</h2>
-  <div id="inbox">
-    <div class="alert alert-info" role="alert">
-
-    {% for message in messages %}
-      <div class="message" data-message-id="{{ message.id }}" onclick="decryptMessage(this)">
-        <div>
-          <p><strong>From:</strong> {{ message.sender.username }}</p>
-          <span class="encrypted-content">{{ message.content|truncatechars:100 }}</span>
-          <p><small>{{ message.timestamp }}</small></p>
-        </div>
-        <hr>
+<h2>Inbox</h2>
+<div id="inbox" class="container">
+  {% for message in messages %}
+    <div class="card mb-3 message" data-message-id="{{ message.id }}" onclick="decryptMessage(this)">
+      <!-- Apply a green accent border on the left -->
+      <div class="card-body" style="border-left: 4px solid rgb(6, 128, 56);">
+        <p><strong>From:</strong> {{ message.sender.username }}</p>
+        <p class="encrypted-content">{{ message.content|truncatechars:100 }}</p>
+        <p><small class="text-muted">{{ message.timestamp }}</small></p>
       </div>
-    {% endfor %}
     </div>
-  </div>
+  {% endfor %}
+</div>
 
   <script>
     function decryptMessage(element) {

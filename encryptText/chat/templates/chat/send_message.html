@@ -1,11 +1,33 @@
 {% extends "base_generic.html" %}
+
+{% load widget_tweaks %}
 {% block content %}
-  <h2>Send a Message</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Send</button>
-  </form>
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-sm">
+          <!-- Custom background color using inline style -->
+          <div class="card-header" style="background-color: rgb(6, 128, 56); color: white;">
+            <h2 class="mb-0">Send a Message</h2>
+          </div>
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+              <div class="mb-3">
+                {{ form.receiver.label_tag }}
+                {{ form.receiver|add_class:"form-control" }}
+              </div>
+              <div class="mb-3">
+                {{ form.content.label_tag }}
+                {{ form.content|add_class:"form-control" }}
+              </div>
+              <button type="submit" class="btn" style="background-color: rgb(6, 128, 56); color: white;">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 {% block extra_js %}
